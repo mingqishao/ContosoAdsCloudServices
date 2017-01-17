@@ -1,0 +1,9 @@
+c:\Users\cawa\Documents\Visual Studio 2015\Projects\ContosoAdsCloudService\ContosoAdsCommon\bin\Debug\ContosoAdsCommon.dll.config
+c:\Users\cawa\Documents\Visual Studio 2015\Projects\ContosoAdsCloudService\ContosoAdsCommon\bin\Debug\ContosoAdsCommon.dll
+c:\Users\cawa\Documents\Visual Studio 2015\Projects\ContosoAdsCloudService\ContosoAdsCommon\bin\Debug\ContosoAdsCommon.pdb
+c:\Users\cawa\Documents\Visual Studio 2015\Projects\ContosoAdsCloudService\ContosoAdsCommon\bin\Debug\EntityFramework.dll
+c:\Users\cawa\Documents\Visual Studio 2015\Projects\ContosoAdsCloudService\ContosoAdsCommon\bin\Debug\EntityFramework.SqlServer.dll
+c:\Users\cawa\Documents\Visual Studio 2015\Projects\ContosoAdsCloudService\ContosoAdsCommon\bin\Debug\EntityFramework.xml
+c:\Users\cawa\Documents\Visual Studio 2015\Projects\ContosoAdsCloudService\ContosoAdsCommon\bin\Debug\EntityFramework.SqlServer.xml
+c:\Users\cawa\Documents\Visual Studio 2015\Projects\ContosoAdsCloudService\ContosoAdsCommon\obj\Debug\ContosoAdsCommon.dll
+c:\Users\cawa\Documents\Visual Studio 2015\Projects\ContosoAdsCloudService\ContosoAdsCommon\obj\Debug\ContosoAdsCommon.pdb
