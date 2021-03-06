@@ -1,12 +1,11 @@
 ﻿.vs/
 ContosoAdsCloudService/bin/
 ContosoAdsCloudService/csx/
-ContosoAdsCloudService/obj
-ContosoAdsCloudService/obj
+ContosoAdsCloudService/obj/
 ContosoAdsCommon/bin/
-ContosoAdsWeb/bin
-ContosoAdsWeb/obj
-ContosoAdsCommon/obj
-ContosoAdsCommon/bin
+ContosoAdsWeb/bin/
+ContosoAdsWeb/obj/
+ContosoAdsCommon/obj/
+ContosoAdsCommon/bin/
 ContosoAdsWorker/bin/
 ContosoAdsWorker/obj/
