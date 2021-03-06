@@ -1,12 +1,12 @@
-﻿################################################################################
-# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
-################################################################################
-
-.vs/
-/ContosoAdsCloudService/csx/Debug/roles
-/ContosoAdsCommon/obj/Debug
-/ContosoAdsCloudService/obj/Debug/ContosoAdsWeb/bin
-/ContosoAdsWeb/obj/Debug
-/ContosoAdsWorker/bin/Debug
-/ContosoAdsWorker/obj/Debug
-/ContosoAdsWeb/bin
+﻿.vs/
+ContosoAdsCloudService/bin/
+ContosoAdsCloudService/csx/
+ContosoAdsCloudService/obj
+ContosoAdsCloudService/obj
+ContosoAdsCommon/bin/
+ContosoAdsWeb/bin
+ContosoAdsWeb/obj
+ContosoAdsCommon/obj
+ContosoAdsCommon/bin
+ContosoAdsWorker/bin/
+ContosoAdsWorker/obj/
