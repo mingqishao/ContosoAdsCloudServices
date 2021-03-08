@@ -12,7 +12,7 @@
     <ConfigurationSettings>
       <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
       <Setting name="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=minshacloudservice2;AccountKey=9u8hRzqXZXpw5K8ZITNHigyvkWjSH8OIqiEpnriIXObZfVrrkd+nlyc1wNYZtgDfXrkGM2EfqvG0wf0Uqni3iw==;EndpointSuffix=core.windows.net" />
-      <Setting name="ContosoAdsDbConnectionString" value="Server=tcp:minshacloudserviceprototype.database.windows.net,1433;Initial Catalog=contosoads;Persist Security Info=False;User ID=minsha;Password=MiWaxs!hxl0fT;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" />
+      <Setting name="ContosoAdsDbConnectionString" value="Server=tcp:minshacloudserviceprototype.database.windows.net,1433;Initial Catalog=contosoads;Persist Security Info=False;User ID=minsha;Password=SqlServer123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" />
     </ConfigurationSettings>
   </Role>
 </ServiceConfiguration>
