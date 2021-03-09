@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ServiceDefinition name="ContosoAdsCloudService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition" schemaVersion="2015-04.2.6">
-  <WebRole name="ContosoAdsWeb" vmsize="Small">
+  <WebRole name="ContosoAdsWeb" vmsize="Standard_D2_v3">
     <Sites>
       <Site name="Web">
         <Bindings>
@@ -16,7 +16,7 @@
       <InputEndpoint name="Endpoint1" protocol="http" port="80" />
     </Endpoints>
   </WebRole>
-  <WorkerRole name="ContosoAdsWorker" vmsize="Small">
+  <WorkerRole name="ContosoAdsWorker" vmsize="Standard_D2_v3">
     <ConfigurationSettings>
       <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" />
       <Setting name="StorageConnectionString" />
