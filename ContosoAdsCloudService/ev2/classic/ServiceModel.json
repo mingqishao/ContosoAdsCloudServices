@@ -1,0 +1,34 @@
+{
+    "$schema": "http://schema.express.azure.com/schemas/2015-01-01-alpha/ServiceModel.json",
+    "contentVersion": "0.0.0.1",
+    "ServiceMetadata": {
+        "ServiceGroup": "ContosoAdsCloudService",
+        "Environment": "Prod"
+    },
+    "ServiceResourceGroupDefinitions": [
+        {
+            "Name": "ContosoAdsCloudService",
+            "ServiceResourceDefinitions": [
+                {
+                    "Name": "ContosoAdsCloudService",
+                    "ArmTemplatePath": "DeploymentTemplate.json"
+                }
+            ]
+        }
+    ],
+    "ServiceResourceGroups": [
+        {
+            "AzureResourceGroupName": "<ResourceGroupName>",
+            "Location": "eastus",
+            "InstanceOf": "ContosoAdsCloudService",
+            "AzureSubscriptionId": "<SubscriptionId>",
+            "ServiceResources": [
+                {
+                    "Name": "ContosoAdsCloudService",
+                    "InstanceOf": "ContosoAdsCloudService",
+                    "ArmParametersPath": "DeploymentParameters.json"
+                }
+            ]
+        }
+    ]
+}

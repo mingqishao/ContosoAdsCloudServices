@@ -1,0 +1,53 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "deploymentLabel": {
+            "type": "string"
+        },
+        "serviceDomainName": {
+            "type": "string"
+        },
+        "servicePackageLink": {
+            "type": "securestring"
+        },
+        "serviceConfigurationLink": {
+            "type": "securestring"
+        },
+        "updateOptions": {
+            "type": "string"
+        }
+    },
+    "variables": {
+        "resourceLocation": "eastus"
+    },
+    "resources": [
+        {
+            "apiVersion": "2014-06-01",
+            "type": "Microsoft.ClassicCompute/domainNames",
+            "name": "[parameters('serviceDomainName')]",
+            "location": "[variables('resourceLocation')]",
+            "resources": [
+                {
+                    "apiVersion": "2014-06-01",
+                    "name": "production",
+                    "type": "deploymentSlots",
+                    "dependsOn": [
+                        "[resourceId('Microsoft.ClassicCompute/domainNames', parameters('serviceDomainName'))]"
+                    ],
+                    "properties": {
+                        "packageLink": {
+                            "uri": "[parameters('servicePackageLink')]"
+                        },
+                        "deploymentLabel": "[parameters('deploymentLabel')]",
+                        "ConfigurationLink": {
+                            "uri": "[parameters('serviceConfigurationLink')]"
+                        },
+                        "deploymentOptions": "StartDeployment",
+                        "updateOptions": "[parameters('updateOptions')]"
+                    }
+                }
+            ]
+        }
+    ]
+}
