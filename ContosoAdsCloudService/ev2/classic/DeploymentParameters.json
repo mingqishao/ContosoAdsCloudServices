@@ -12,7 +12,7 @@
         "serviceDomainName": { "value": "<CloudServiceName>" },
 
         "servicePackageLink": { "value": "ContosoAdsCloudService.cspkg" },
-        "serviceConfigurationLink": { "value": "ServiceConfigurationf.cscfg" },
+        "serviceConfigurationLink": { "value": "ServiceConfiguration.cscfg" },
         "updateOptions": { "value": "None" }
     }
 }

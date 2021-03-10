@@ -1,0 +1,43 @@
+{
+  "$schema":"https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion":"1.0.0.0",
+  "paths": [
+    "packageUri",
+    "configurationUri"
+  ],
+  "parameters":{
+      "cloudServiceName":{
+          "value":"<CloudServiceName>"
+      },
+      "location":{
+          "value":"eastus"
+      },
+      "deploymentLabel":{
+          "value":"<DeploymentLabel>"
+      },
+      "packageUri":{
+          "value":"ContosoAdsCloudService.cspkg"
+      },
+      "configurationUri":{
+          "value":"ContosoAdsCloudService.cscfg"
+      },
+      "roles":{
+          "value":[
+              {
+                  "name":"ContosoAdsWeb",
+                  "sku":{
+                      "name":"Standard_D2_v3",
+                      "capacity":"1"
+                  }
+              },
+              {
+                  "name":"ContosoAdsWorker",
+                  "sku":{
+                      "name":"Standard_D2_v3",
+                      "capacity":"1"
+                  }
+              }
+          ]
+      }
+  }
+}

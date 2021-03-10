@@ -1,0 +1,157 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "virtualNetworks_name": {
+            "defaultValue": "HwtVNet",
+            "type": "string"
+        },
+        "servicePackageLink" : {
+            "type": "string"
+        },
+        "servicePackageConfigurationLink" : {
+            "type": "string"
+        },
+        "publicIPAddresses_name": {
+            "defaultValue": "raranjanev2PublicIp",
+            "type": "string"
+        },
+        "cloudService_name": {
+            "defaultValue": "raranjanev2cloudservice",
+            "type": "string"
+        },
+        "loadbalancer_name": {
+            "defaultValue": "raranjanev2LB",
+            "type": "string"
+        },
+        "loadbalancerfe_name": {
+            "defaultValue": "raranjanev2LBFE",
+            "type": "string"
+        }
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Network/virtualNetworks",
+            "apiVersion": "2020-05-01",
+            "name": "[parameters('virtualNetworks_name')]",
+            "location": "westus2",
+            "properties": {
+                "addressSpace": {
+                    "addressPrefixes": [
+                        "10.0.0.0/24"
+                    ]
+                },
+                "subnets": [
+                    {
+                        "name": "WebTier",
+                        "properties": {
+                            "addressPrefix": "10.0.0.0/24",
+                            "serviceEndpoints": [],
+                            "delegations": [],
+                            "privateEndpointNetworkPolicies": "Enabled",
+                            "privateLinkServiceNetworkPolicies": "Enabled"
+                        }
+                    }
+                ],
+                "virtualNetworkPeerings": [],
+                "enableDdosProtection": false,
+                "enableVmProtection": false
+            }
+        },
+        {
+            "type": "Microsoft.Network/virtualNetworks/subnets",
+            "apiVersion": "2020-05-01",
+            "name": "[concat(parameters('virtualNetworks_name'), '/WebTier')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_name'))]"
+            ],
+            "properties": {
+                "addressPrefix": "10.0.0.0/24",
+                "serviceEndpoints": [],
+                "delegations": [],
+                "privateEndpointNetworkPolicies": "Enabled",
+                "privateLinkServiceNetworkPolicies": "Enabled"
+            }
+        },
+        {
+            "type": "Microsoft.Network/publicIPAddresses",
+            "apiVersion": "2020-05-01",
+            "name": "[parameters('publicIPAddresses_name')]",
+            "location": "westus2",
+            "sku": {
+                "name": "Basic"
+            },
+            "properties": {
+                "publicIPAddressVersion": "IPv4",
+                "publicIPAllocationMethod": "Dynamic",
+                "idleTimeoutInMinutes": 4,
+                "dnsSettings": {
+                    "domainNameLabel": "minshalocalcscfg",
+                    "fqdn": "minshalocalcscfg.westus2.cloudapp.azure.com"
+                },
+                "ipTags": []
+            }
+        },
+        {
+            "type": "Microsoft.Compute/cloudServices",
+            "apiVersion": "2020-10-01-preview",
+            "name": "[parameters('cloudService_name')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_name'))]",
+                "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_name'))]"
+            ],
+            "location": "westus2",
+            "properties":
+            {
+                "packageUrl":"[parameters('servicePackageLink')]",
+                "configurationUrl":"[parameters('servicePackageConfigurationLink')]",
+                "upgradeMode": "Auto",
+                "roleProfile": {
+                    "roles": [
+                        {
+                            "name": "WorkerRole1",
+                            "sku":
+                            {
+                                "name": "Standard_A0",
+                                "tier": "Standard",
+                                "capacity": 1
+                            }
+                        }
+                    ]
+                },
+                "networkProfile":
+                {
+                    "loadBalancerConfigurations":
+                    [
+                        {
+                            "name":"[parameters('loadbalancer_name')]",
+                            "id":"[resourceId('Mmimcrosoft.Network/loadBalancers', parameters('loadbalancer_name'))]",
+                            "properties":
+                            {
+                                "frontendIPConfigurations":
+                                [
+                                    {
+                                        "name":"[parameters('loadbalancerfe_name')]",
+                                        "properties":
+                                        {
+                                            "publicIPAddress":
+                                            {
+                                                "id":"[resourceId('Microsoft.Network/publicIpAddresses', parameters('publicIPAddresses_name'))]"
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                "extensionProfile":
+                {
+                    "extensions":
+                    [
+                    ]
+                }
+            }
+        }
+    ]
+}

@@ -16,16 +16,16 @@
     </ConfigurationSettings>
   </Role>
   <NetworkConfiguration>
-    <VirtualNetworkSite name="minsha-az-prototype-vnet" />
+    <VirtualNetworkSite name="minsha-az-prototype-externalsupportVnet" />
     <AddressAssignments>
       <InstanceAddress roleName="ContosoAdsWeb">
         <Subnets>
-          <Subnet name="Default" />
+          <Subnet name="WebTier" />
         </Subnets>
       </InstanceAddress>
       <InstanceAddress roleName="ContosoAdsWorker">
         <Subnets>
-          <Subnet name="Default" />
+          <Subnet name="WebTier" />
         </Subnets>
       </InstanceAddress>
     </AddressAssignments>

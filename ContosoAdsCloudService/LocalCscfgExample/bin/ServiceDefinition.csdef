@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceDefinition name="HelloWorldTest_WorkerRole_StandardSizes" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition" schemaVersion="2015-04.2.6">
+  <WorkerRole name="WorkerRole1" vmsize="Standard_A0">
+    <ConfigurationSettings>
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" />
+      <Setting name="Application.WelcomeString" />
+    </ConfigurationSettings>
+    <Endpoints>
+      <InputEndpoint name="tcpin" protocol="tcp" port="80" localPort="8080" />
+    </Endpoints>
+  </WorkerRole>
+</ServiceDefinition>

@@ -1,0 +1,39 @@
+﻿{
+  "$schema": "https://ev2schema.azure.net/schemas/2020-01-01/serviceModel.json",
+  "serviceMetadata": {
+    "serviceGroup": "Contoso-MktPlace",
+    "environment": "Test"
+  },
+  "serviceResourceGroupDefinitions": [
+  {
+    "name": "ContosoAppGroup",
+    "serviceResourceDefinitions": [
+    {
+      "name": "ContosoWebApp",
+      "composedOf":
+      {
+        "arm":
+        {
+          "templatePath": "Templates\\WebApp.Template.json",
+          "parametersPath": "Parameters\\WebApp.Parameters.json"
+        }
+      }
+    }]
+  }],
+  "serviceResourceGroups": [
+  {
+    "azureResourceGroupName": "minsha-local-cscfg-example",
+    "location": "West US 2",
+    "instanceOf": "ContosoAppGroup",
+    "azureSubscriptionId": "da28f5e5-aa45-46fe-90c8-053ca49ab4b5",
+    "serviceResources": [
+    {
+      "name": "ContosoWebAppWestUS2",
+      "instanceOf": "ContosoWebApp",
+      "scopeTags": [
+      {
+        "name": "WestUS2Region"
+      }]
+    }]
+  }]
+}
