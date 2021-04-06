@@ -10,7 +10,7 @@
           "value":"<CloudServiceName>"
       },
       "location":{
-          "value":"eastus"
+          "value":"<location>"
       },
       "deploymentLabel":{
           "value":"<DeploymentLabel>"

@@ -18,7 +18,7 @@
     ],
     "ServiceResourceGroups": [
         {
-            "AzureResourceGroupName": "<ResourceGroupName>",
+            "AzureResourceGroupName": "<CloudServiceName>",
             "Location": "eastus",
             "InstanceOf": "ContosoAdsCloudService",
             "AzureSubscriptionId": "<SubscriptionId>",

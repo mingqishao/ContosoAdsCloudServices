@@ -16,7 +16,7 @@
     </ConfigurationSettings>
   </Role>
   <NetworkConfiguration>
-    <VirtualNetworkSite name="minsha-az-prototype-externalsupportVnet" />
+    <VirtualNetworkSite name="<CloudServiceName>Vnet" />
     <AddressAssignments>
       <InstanceAddress roleName="ContosoAdsWeb">
         <Subnets>
@@ -28,6 +28,11 @@
           <Subnet name="WebTier" />
         </Subnets>
       </InstanceAddress>
+      <!--
+      <ReservedIPs>
+        <ReservedIP name="minsha-az-prototype-externalsupportIp"/>
+      </ReservedIPs>
+      -->
     </AddressAssignments>
   </NetworkConfiguration>
 </ServiceConfiguration>
